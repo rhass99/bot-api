@@ -2,12 +2,10 @@
   "name": "iris",
   "version": "1.0.0",
   "description": "",
-  "main": "server/service.js",
+  "main": "bin/app.js",
   "scripts": {
-    "start": "nodemon lib/index.js --exec babel-node --presets es2015,stage-2",
-    "build": "babel lib -d dist",
-    "serve": "node dist/index.js",
-    "test": "mocha --compilers js:babel-register"
+    "start": "babel-watch -L bin/app.js -w routes -w utils -w server",
+    "server": "nodemon server.js --exec babel-node"
   },
   "author": "",
   "license": "ISC",
@@ -19,7 +17,6 @@
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
-    "babel-watch": "^2.0.7",
-    "nodemon": "^1.14.3"
+    "babel-watch": "^2.0.7"
   }
 }
