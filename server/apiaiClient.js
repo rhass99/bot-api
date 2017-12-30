@@ -1,4 +1,4 @@
-const apiai = require('apiai');
+import apiai from 'apiai';
 
 const apiaiToken = process.env.APIAI_CLIENT;
 const apiaiClient = apiai(apiaiToken);
