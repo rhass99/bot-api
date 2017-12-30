@@ -20,4 +20,5 @@ const sendMessage = (rtmClient, message) => {
 export default {
   witClient,
   sendMessage,
+  name: 'wit',
 };

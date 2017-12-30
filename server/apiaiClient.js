@@ -1,20 +1,27 @@
-import { apiai } from 'apiai';
+const apiai = require('apiai');
 
 const apiaiToken = process.env.APIAI_CLIENT;
+const apiaiClient = apiai(apiaiToken);
 
-const apiaiResponse = (text, sessionID) => {
-  const request = app.textRequest(text, {
-    sessionId: sessionID 
+const sendAiMessage = (rtmClient, message) => {
+  const request = apiaiClient.textRequest(message.text, {
+    sessionId: message.user,
   });
-  return request;
+  request.on('response', (data) => {
+    const responseMessage = JSON.stringify(data.result.fulfillment.speech);
+    const sess = JSON.stringify(data.sessionId);
+    rtmClient.sendMessage(responseMessage, 'C8LB8EH8T')
+    // Returns a promise that resolves when the message is sent
+      .then(() => console.log(`this message was sent ${responseMessage} with ID of ${sess}`))
+      .catch(console.error);
+  });
+  request.on('error', error => console.log(error));
+  request.end();
 };
 
 
-
-const witClient = new Wit({
-  accessToken: witToken,
-});
-
-export default witClient;
-
-console.log(uuidv5('rami@rami.com'))
+export default {
+  apiaiClient,
+  sendAiMessage,
+  name: 'api',
+};

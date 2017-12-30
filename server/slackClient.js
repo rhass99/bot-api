@@ -3,11 +3,16 @@ import { RtmClient, CLIENT_EVENTS, RTM_EVENTS } from '@slack/client';
 const token = process.env.SLACK_TOKEN;
 let rtm = null;
 let nlp = null;
+
 const appData = {};
 
 // Handle incoming message functions.
 const handleIncoming = (message) => {
-  nlp.sendMessage(rtm, message);
+  if (nlp.name === 'wit') {
+    nlp.sendMessage(rtm, message);
+  } else if (nlp.name === 'api') {
+    nlp.sendAiMessage(rtm, message);
+  }
 };
 
 // Function used to show that we are properly connected.
