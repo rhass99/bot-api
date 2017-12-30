@@ -4,15 +4,17 @@
   "description": "",
   "main": "bin/app.js",
   "scripts": {
-    "start": "babel-watch -L bin/app.js -w routes -w utils -w server",
+    "start": "babel-watch -L bin/app.js -w intents -w utils -w server",
     "server": "nodemon server.js --exec babel-node"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@slack/client": "^3.15.0",
+    "apiai": "^4.0.3",
     "express": "^4.16.2",
-    "node-wit": "^4.3.0"
+    "node-wit": "^4.3.0",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

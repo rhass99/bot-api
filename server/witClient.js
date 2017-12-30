@@ -6,4 +6,18 @@ const witClient = new Wit({
   accessToken: witToken,
 });
 
-export default witClient;
+const sendMessage = (rtmClient, message) => {
+  witClient.message(message.text, {})
+    .then((data) => {
+      rtmClient.sendMessage(JSON.stringify(data), 'C8LB8EH8T')
+      // Returns a promise that resolves when the message is sent
+        .then(() => console.log(`this message was sent ${JSON.stringify(message)}`))
+        .catch(console.error);
+    })
+    .catch(console.error);
+};
+
+export default {
+  witClient,
+  sendMessage,
+};
