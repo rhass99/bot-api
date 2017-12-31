@@ -4,7 +4,7 @@
   "description": "",
   "main": "bin/app.js",
   "scripts": {
-    "start": "babel-watch -L bin/app.js -w intents -w utils -w server",
+    "start": "babel-watch -L bin/app.js -w -w server",
     "server": "nodemon server.js --exec babel-node"
   },
   "author": "",
