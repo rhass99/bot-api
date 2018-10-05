@@ -1,6 +1,8 @@
+
+if (process.env.NODE_ENV === 'development') require('dotenv').config();
 import apiai from 'apiai';
 
-const apiaiToken = process.env.APIAI_CLIENT;
+const apiaiToken = process.env.DF_API_TOKEN;
 const apiaiClient = apiai(apiaiToken);
 
 const sendAiMessage = (rtmClient, message) => {

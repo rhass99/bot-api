@@ -4,23 +4,25 @@
   "description": "",
   "main": "bin/app.js",
   "scripts": {
-    "start": "babel-watch -L bin/app.js -w -w server",
-    "server": "nodemon server.js --exec babel-node"
+    "register": "NODE_ENV=development node -r ./app/app",
+    "babel-node": "NODE_ENV=development babel-node",
+    "dev": "nodemon --exec npm run babel-node -- ./app/app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@slack/client": "^3.15.0",
+    "@slack/client": "^4.8.0",
     "apiai": "^4.0.3",
-    "express": "^4.16.2",
-    "node-wit": "^4.3.0",
-    "uuid": "^3.1.0"
+    "express": "^4.16.3",
+    "node-wit": "^5.0.0",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "babel-watch": "^2.0.7"
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "dotenv": "^6.0.0",
+    "nodemon": "^1.18.4"
   }
 }

@@ -1,3 +1,4 @@
+if (process.env.NODE_ENV === 'development') require('dotenv').config();
 import { Wit } from 'node-wit';
 
 const witToken = process.env.WIT_SERVER_ACCESS_TOKEN;
