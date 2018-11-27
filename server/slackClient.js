@@ -4,7 +4,7 @@ const { RTMClient } = require('@slack/client');
 //import nlpClient from './witClient'
 import nlpClient from './apiaiClient'
 
-const token = process.env.SLACK_OLD_BOT;
+const token = process.env.SLACK_NEW_BOT;
 let rtm       = new RTMClient(token);
 let nlp = nlpClient
 
